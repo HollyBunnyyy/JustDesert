@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent( typeof( CameraInputHandler ) )]
 public class FirstPersonCameraState : CameraState
 {
     [SerializeField]
@@ -9,12 +8,8 @@ public class FirstPersonCameraState : CameraState
     [SerializeField]
     private Transform _transformToFollow;
 
+    [SerializeField]
     private CameraInputHandler _cameraInputHandler;
-
-    protected void Awake()
-    {
-        _cameraInputHandler = GetComponent<CameraInputHandler>();
-    }
 
     public override void OnStateUpdate()
     {

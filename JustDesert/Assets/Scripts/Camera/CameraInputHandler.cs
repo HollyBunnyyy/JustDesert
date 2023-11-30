@@ -11,6 +11,9 @@ public class CameraInputHandler : MonoBehaviour
 
     private Vector3 _targetCameraRotation;
 
+    /// <summary>
+    /// Returns the current frame's mouse delta clamped between the minimum and maximum y angle.
+    /// </summary>
     public Vector3 GetMouseInputClamped( float minYAngle = -89.0f, float maxYAngle = 89.0f )
     {
         _targetCameraRotation.x = Mathf.Clamp( _targetCameraRotation.x - _inputHandler.MouseDelta.y * _mouseSensitivity, minYAngle, maxYAngle );

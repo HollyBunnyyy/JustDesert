@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[RequireComponent( typeof( CameraInputHandler ) )]
 public class ThirdPersonCameraState : CameraState
 {
     [SerializeField]
@@ -10,14 +9,10 @@ public class ThirdPersonCameraState : CameraState
     private Transform _transformToFollow;
 
     [SerializeField]
-    private Vector3 _cameraOffset = new Vector3( 0.0f, 0.0f, -5.0f );
-
     private CameraInputHandler _cameraInputHandler;
 
-    protected void Awake()
-    {
-        _cameraInputHandler = GetComponent<CameraInputHandler>();
-    }
+    [SerializeField]
+    private Vector3 _cameraOffset = new Vector3( 0.0f, 0.0f, -5.0f );
 
     public override void OnStateUpdate()
     {
