@@ -31,7 +31,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                     ""name"": ""WASDMovement"",
                     ""type"": ""Value"",
                     ""id"": ""a0bd70d6-8d1a-453f-9d84-a6c61277bf55"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -59,7 +59,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Axis"",
                     ""id"": ""fbe435ff-f584-4537-9f97-1f56ba6f04e1"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""3DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -68,7 +68,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""forward"",
                     ""id"": ""b07a543e-28ea-4ddf-b78e-22536ed84a3d"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
@@ -79,7 +79,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Down"",
+                    ""name"": ""backward"",
                     ""id"": ""5a505be8-9c17-4133-bfb2-99644069e348"",
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
@@ -90,7 +90,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Left"",
+                    ""name"": ""left"",
                     ""id"": ""3b2fab2a-17f3-4453-8239-228c60c36a7a"",
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
@@ -101,7 +101,7 @@ public partial class @InputBindings : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Right"",
+                    ""name"": ""right"",
                     ""id"": ""c4bdd82a-b61d-4373-ba40-b79c040b08f1"",
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",

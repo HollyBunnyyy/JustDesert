@@ -7,9 +7,11 @@ public class RigidbodyMotor : MonoBehaviour
 
     private Vector3 _movementVelocity;
 
+    private Vector3 _targetVelocity;
+
     protected void FixedUpdate()
     {
-        _rigidbody.AddRelativeForce( ( _movementVelocity - _rigidbody.velocity ) * _rigidbody.mass / Time.fixedDeltaTime );
+        _rigidbody.AddForce( ( _targetVelocity - _rigidbody.velocity ) * _rigidbody.mass / Time.fixedDeltaTime );
 
     }
 
@@ -18,6 +20,7 @@ public class RigidbodyMotor : MonoBehaviour
     /// </summary>
     public void MoveTowards( Vector3 directionToMoveTowards, float movementSpeed )
     {
-        _movementVelocity = directionToMoveTowards * movementSpeed;
+        _targetVelocity = directionToMoveTowards * movementSpeed;
+
     }
 }
