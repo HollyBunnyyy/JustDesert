@@ -34,28 +34,3 @@ public class RigidbodyMotor : MonoBehaviour
 
     }
 }
-
-/*
-    private float _desiredAcceleration;
-    private Vector3 _targetDirection;
-    private Vector3 _targetAcceleration;
-    private Vector3 _targetVelocity = Vector3.zero;
-    private Vector3 _gravityScalar = new Vector3( 1.0f, 0.0f, 1.0f );
-
-    protected void FixedUpdate()
-    {
-        _targetVelocity = Vector3.MoveTowards( _targetVelocity, _targetDirection, _desiredAcceleration * Time.fixedDeltaTime );
-
-        _targetAcceleration = ( _targetVelocity - _rigidbody.velocity ) * _rigidbody.mass / Time.fixedDeltaTime;
-        _targetAcceleration = Vector3.ClampMagnitude( _targetAcceleration, _desiredAcceleration );
-
-        _rigidbody.AddForce( Vector3.Scale( _targetAcceleration, _gravityScalar ) );
-    }
-
-    public void MoveTowards( Vector3 movementDirection, float movementSpeed, float movementAcceleration )
-    {
-        _targetDirection = movementDirection * movementSpeed;
-
-        _desiredAcceleration = movementAcceleration;
-    }
- */
