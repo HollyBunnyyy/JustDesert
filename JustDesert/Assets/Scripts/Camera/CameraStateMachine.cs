@@ -10,7 +10,6 @@ public class CameraStateMachine : MonoBehaviour, IStateMachine<CameraState>
         if( _cameraState == null )
         {
             return;
-
         }
 
         _cameraState.OnStateUpdate();

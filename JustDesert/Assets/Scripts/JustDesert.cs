@@ -8,6 +8,14 @@ public class JustDesert : MonoBehaviour
     public static JustDesert Instance => FindSingletonUniqueInstance();
 
     [SerializeField]
+    private GameManager _gameManager;
+    public GameManager GameManager
+    {
+        get { return _gameManager != null ? _gameManager : _gameManager = Instance.GetOrAddComponent<GameManager>(); }
+    }
+
+
+    [SerializeField]
     private InputHandler _inputHandler;
     public InputHandler InputHandler
     {
@@ -25,7 +33,7 @@ public class JustDesert : MonoBehaviour
 
         if( justDesertInstance == null )
         {
-            justDesertInstance = new GameObject( "Roguelike" ).AddComponent<JustDesert>();
+            justDesertInstance = new GameObject( "JustDesert" ).AddComponent<JustDesert>();
         }
 
         return _instance = justDesertInstance;

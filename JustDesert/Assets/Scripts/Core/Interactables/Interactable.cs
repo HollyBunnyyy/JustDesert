@@ -6,4 +6,5 @@ public class Interactable : MonoBehaviour, IInteractable
     {
         return true;
     }
+
 }
