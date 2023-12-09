@@ -20,7 +20,7 @@ public class RigidbodyMotor : MonoBehaviour
         // Calculates the amount of force to apply based off the difference of the rigidbody's current velocity and
         // the desired target velocity - also works as a corrective force if the rigidbody's velocity is higher than
         // the given targetVelocity.
-        _targetAcceleration = ( _targetVelocity - _rigidbody.velocity ) * _rigidbody.mass / Time.fixedDeltaTime;
+        _targetAcceleration = ( _targetVelocity - _rigidbody.velocity ) / Time.fixedDeltaTime;
 
         // This limits the amount of force that can be applied by the acceleration amount.
         // Since the formula above can act as a 'corrective force' it's also important to limit how much it can
@@ -30,7 +30,7 @@ public class RigidbodyMotor : MonoBehaviour
         // Finally, apply our desired acceleration amount.
         // Scaling the acceleration by gravity stops the targetAcceleration algorithm from ALSO correcting gravity
         // which is necesary because otherwise our player could not fall at all if this is applied every frame. 
-        _rigidbody.AddForce( Vector3.Scale( _targetAcceleration, _gravityScalar ) );
+        _rigidbody.AddForce( Vector3.Scale( _targetAcceleration, _gravityScalar ) * _rigidbody.mass );
 
     }
 }
