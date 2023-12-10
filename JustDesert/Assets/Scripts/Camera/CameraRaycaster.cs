@@ -19,7 +19,7 @@ public class CameraRaycaster : MonoBehaviour
     /// </summary>
     public bool TryGetCurrentObjectInView( out GameObject objectInView )
     {
-        objectInView = _raycastHitInfo.collider ? _raycastHitInfo.transform.gameObject : null;
+        objectInView = _raycastHitInfo.collider ? _raycastHitInfo.collider.gameObject : null;
 
         return objectInView;
 
