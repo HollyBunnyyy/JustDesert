@@ -19,6 +19,8 @@ public class Door : MonoBehaviour, IInteractable
 
     public bool OnInteract( GameObject interactingObject )
     {
+        Debug.Log( "Interaction from " + interactingObject.name + " on " + gameObject.name );
+
         return true;
     }
 }

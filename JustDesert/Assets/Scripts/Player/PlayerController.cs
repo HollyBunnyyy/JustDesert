@@ -4,6 +4,9 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private float _interactionDistance = 2.0f;
+
+    [SerializeField]
     private float _movementSpeed = 5.0f;
 
     [SerializeField]
@@ -16,6 +19,9 @@ public class PlayerController : MonoBehaviour
     private CameraDirectionGimble _cameraDirectionGimble;
 
     [SerializeField]
+    private CameraRaycaster _cameraRaycaster;
+
+    [SerializeField]
     private InputHandler _inputHandler;
 
     [SerializeField]
@@ -26,19 +32,37 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 _inputDirection;
 
+    private bool _isTouchingGround;
+
     protected void Update()
     {
         _inputDirection = _cameraDirectionGimble.transform.TransformDirection( _inputHandler.WASDAxis );
 
+        if( Input.GetKeyDown( KeyCode.E ) )
+        {
+            if( _cameraRaycaster.TryGetCurrentObjectInView( _interactionDistance, out GameObject gameObjectInView ) )
+            {
+                gameObjectInView.TryGetComponent( out IInteractable interactable );
+
+                interactable?.OnInteract( gameObject );
+
+            }
+        }
     }
 
     protected void FixedUpdate()
     {
+        _isTouchingGround = Physics.Raycast( transform.position, -transform.up, 1.0f );
+
         _velocityDirectionDelta = Vector3.Dot( _inputDirection, _rigidbodyMotor.Velocity.normalized );
 
         _frictionToApply = _movementFriction * _frictionCurve.Evaluate( _velocityDirectionDelta );
 
-        _rigidbodyMotor.ApplyFrictionForce( _inputDirection, _movementSpeed, _frictionToApply );
+        if( _isTouchingGround )
+        {
+            _rigidbodyMotor.ApplyFrictionForce( _inputDirection, _movementSpeed, _frictionToApply );
+
+        }
     }
 
 }

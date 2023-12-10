@@ -33,4 +33,10 @@ public class RigidbodyMotor : MonoBehaviour
         _rigidbody.AddForce( Vector3.Scale( _targetAcceleration, _gravityScalar ) * _rigidbody.mass );
 
     }
+
+    public void ApplyInstantForce( Vector3 directionToApply, float forceToApply )
+    {
+        _rigidbody.AddForce((( directionToApply * forceToApply ) - _rigidbody.velocity ) / Time.fixedDeltaTime );
+    }
+
 }
